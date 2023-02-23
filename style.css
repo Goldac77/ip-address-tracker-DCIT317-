@@ -1,0 +1,9 @@
+* {
+    box-sizing: border-box;
+    margin: auto;
+}
+
+#map {
+    height: 500px;
+    width: 70vw;
+}
