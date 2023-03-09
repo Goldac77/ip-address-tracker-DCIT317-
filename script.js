@@ -1,29 +1,35 @@
 const btn = document.querySelector("#form-btn");
 const ipInput = document.querySelector("#inputBtn");
 const intialLocation = [5.652426305999822, -0.1880851446149894]; //UGCS location
-
+const ipRegex = /^([0-9]{1,3}\.){3}[0-9]{1,3}$/;
 
 btn.addEventListener("click", () => {
-    fetch(`http://ipinfo.io/${ipInput.value}?token=54737db2987f24`)
-    .then(response => response.json())
-    .then(data => {
-        //get the latitude and longitude...
-        let location = data.loc.split(",");
-        let lat = location[0];
-        let long = location[1];
+    if(ipRegex.test(ipInput.value)){
+        //if input is a valid IP Address...
+        fetch(`http://ipinfo.io/${ipInput.value}?token=54737db2987f24`)
+        .then(response => response.json())
+        .then(data => {
+            //get the latitude and longitude...
+            let location = data.loc.split(",");
+            let lat = location[0];
+            let long = location[1];
 
-        //fly to new location
-        map.flyTo([lat, long], 13);
+            //fly to new location
+            map.flyTo([lat, long], 13);
 
-        //remove initial marker
-        map.removeLayer(initialMarker);
+            //remove initial marker
+            map.removeLayer(initialMarker);
 
-        //new marker
-        let newMarker = new L.Marker([lat, long]);
-        newMarker.addTo(map);
-        newMarker.bindPopup(`${data.org}`);
+            //new marker
+            let newMarker = new L.Marker([lat, long]);
+            newMarker.addTo(map);
+            newMarker.bindPopup(`${data.org}`);
 
-    })
+        })
+    } else {
+        alert("Enter a valid IP Address")
+    }
+    
 })
 
 //Initial map render location is UGCS
