@@ -33,8 +33,6 @@ btn.addEventListener("click", () => {
             newMarker.addTo(map);
             newMarker.bindPopup(`${data.org}`);
 
-            console.log(data)
-
         })
     } else {
         alert("Enter a valid IP Address")
