@@ -23,7 +23,7 @@ btn.addEventListener("click", () => {
             cityDisplay.innerHTML = `${data.city}`;
 
             //fly to new location
-            map.flyTo([lat, long], 13);
+            map.flyTo([lat, long], 17);
 
             //remove initial marker
             map.removeLayer(initialMarker);
@@ -41,7 +41,7 @@ btn.addEventListener("click", () => {
 })
 
 //Initial map render location is UGCS
-var map = L.map('map').setView(intialLocation, 13);
+var map = L.map('map').setView(intialLocation, 17);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
