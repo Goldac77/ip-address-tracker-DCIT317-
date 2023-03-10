@@ -1,6 +1,9 @@
 const btn = document.querySelector("#form-btn");
 const ipInput = document.querySelector("#inputBtn");
 const intialLocation = [5.652426305999822, -0.1880851446149894]; //UGCS location
+const ipDisplay = document.querySelector("#ip_div");
+const countryDisplay = document.querySelector("#country_div");
+const cityDisplay = document.querySelector("#city_div");
 const ipRegex = /^([0-9]{1,3}\.){3}[0-9]{1,3}$/;
 
 btn.addEventListener("click", () => {
@@ -14,6 +17,11 @@ btn.addEventListener("click", () => {
             let lat = location[0];
             let long = location[1];
 
+            //display ip data
+            ipDisplay.innerHTML = `${data.ip}`;
+            countryDisplay.innerHTML = `${data.country}`;
+            cityDisplay.innerHTML = `${data.city}`;
+
             //fly to new location
             map.flyTo([lat, long], 13);
 
@@ -24,6 +32,8 @@ btn.addEventListener("click", () => {
             let newMarker = new L.Marker([lat, long]);
             newMarker.addTo(map);
             newMarker.bindPopup(`${data.org}`);
+
+            console.log(data)
 
         })
     } else {
