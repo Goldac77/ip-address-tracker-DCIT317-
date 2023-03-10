@@ -16,27 +16,31 @@
     <title>IP Address Tracker</title>
 </head>
 <body>
-    <div id="form-div">
-        <form action="">
-            <input type="text" name="" id="inputBtn" placeholder="Enter a valid IP address">
-            <button type="button" id="form-btn">Search</button>
-        </form>
+    <div class = "container">
+        <h1 class = "title">IP Address Tracker</h1>
+        <div id="form-div">
+            <form action="">
+                <input type="text" name="" id="inputBtn" placeholder="Enter a valid IP address">
+                <button type="button" id="form-btn">Search</button>
+            </form>
+        </div>
+    
+        <div id="display">
+            <div class="hg">
+                <h3>IP ADDRESS</h3>
+                <div id="ip_div"></div>
+            </div>
+            <div class="hg">
+                <h3>COUNTRY</h3>
+                <div id="country_div"></div>
+            </div>
+            <div class="hg">
+                <h3>CITY</h3>
+                <div id="city_div"></div>
+            </div>
+        </div>
     </div>
-
-    <div id="display">
-        <div class="hg">
-            <h3>IP ADDRESS</h3>
-            <div id="ip_div"></div>
-        </div>
-        <div class="hg">
-            <h3>COUNTRY</h3>
-            <div id="country_div"></div>
-        </div>
-        <div class="hg">
-            <h3>CITY</h3>
-            <div id="city_div"></div>
-        </div>
-    </div>
+    
 
     <div id="map">
     </div>
