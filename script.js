@@ -9,7 +9,7 @@ const ipRegex = /^([0-9]{1,3}\.){3}[0-9]{1,3}$/;
 btn.addEventListener("click", () => {
     if(ipRegex.test(ipInput.value)){
         //if input is a valid IP Address...
-        fetch(`http://ipinfo.io/${ipInput.value}?token=54737db2987f24`)
+        fetch(`https://ipinfo.io/${ipInput.value}?token=54737db2987f24`)
         .then(response => response.json())
         .then(data => {
             //get the latitude and longitude...
