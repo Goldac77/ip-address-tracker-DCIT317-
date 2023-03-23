@@ -12,6 +12,7 @@ btn.addEventListener("click", () => {
         fetch(`https://ipinfo.io/${ipInput.value}?token=54737db2987f24`)
         .then(response => response.json())
         .then(data => {
+            try {
             //get the latitude and longitude...
             let location = data.loc.split(",");
             let lat = location[0];
@@ -32,6 +33,12 @@ btn.addEventListener("click", () => {
             let newMarker = new L.Marker([lat, long]);
             newMarker.addTo(map);
             newMarker.bindPopup(`${data.org}`);
+            } catch (error) {
+                if(error instanceof TypeError) {
+                    alert("Enter a public IP Address");
+                }
+            }
+
 
         })
     } else {
