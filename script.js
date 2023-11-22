@@ -1,3 +1,6 @@
+//adblocker alert
+alert("Disable any adblockers to enable the app work correctly");
+
 const btn = document.querySelector("#form-btn");
 const ipInput = document.querySelector("#inputBtn");
 const intialLocation = [5.652426305999822, -0.1880851446149894]; //UGCS location
